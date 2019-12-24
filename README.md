@@ -1,3 +1,27 @@
+# Demonstration of running node.js build pipeline via ANT (Java)
+
+We shall test our `build.xml` on the demo VueJs project written in TypeScript. The result of a build will be in `build` folder.
+
+## How to test on Windows
+1. install [ANT](http://apache-mirror.rbc.ru/pub/apache//ant/binaries/apache-ant-1.10.7-bin.zip) to a directory say `C:\tools\ant`
+2. add `C:\tools\ant\bin` to the PATH
+3. switch to the project directory
+4. run `ant npm` - it will download Node.js to `%USERPROFILE%\.ant\node` and under the hood it runs commands:
+- `%USERPROFILE%\.ant\node\npm install`
+- `%USERPROFILE%\.ant\node\npm run build`
+
+## How to test on Mac/Linux/Unix
+1. install [ANT](http://apache-mirror.rbc.ru/pub/apache//ant/binaries/apache-ant-1.10.7-bin.zip) to a directory say `/opt/ant`
+2. add `/opt/ant/bin` to the PATH
+3. switch to the project directory
+4. run `ant -f /opt/ant/fetch.xml -Ddest=system` - to download optional ANT libraries (we need XZ)
+5. run `ant npm` - it will download Node.js to `~/.ant/node` and under the hood runs commands:
+- `~/.ant/node/npm install`
+- `~/.ant/node/npm run build`
+
+__The result of the build is in the `build` directory!__
+
+
 # mantha
 > Webpack 4 Vue.js typescript-friendly production starter kit with A LOT of automated processes.
 
